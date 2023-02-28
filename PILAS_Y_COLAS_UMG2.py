@@ -3,7 +3,26 @@ import time
 from queue import Queue
 
 
-    # Definir la clase Pila
+   
+
+def colas():
+    from queue import Queue
+    # Generar números aleatorios y agregarlos a la cola
+cola = Queue()
+for i in range(1000000):
+    numero = random.randint(-10000000, 10000000)
+    cola.put(numero)
+
+# Extraer los números de la cola y medir el tiempo
+inicio1 = time.time()
+while not cola.empty():
+    numero = cola.get()
+fin1 = time.time()
+
+
+#------------------Fin Colas---------------------------------------------
+
+ # Definir la clase Pila
 class Pila:
     def __init__(self):
         self.items = []
@@ -21,35 +40,17 @@ class Pila:
     # Generar números aleatorios y agregarlos a la pila
 pila = Pila()
 for i in range(1000000):
-    numero = random.randint(-10000000, 10000000)
-    pila.push(numero)
+    numeros = random.randint(-10000000, 10000000)
+    pila.push(numeros)
 
 # Extraer los números de la pila y medir el tiempo
 inicio = time.time()
 while not pila.esta_vacia():
-    numero = pila.pop()
+    numeros = pila.pop()
 fin = time.time()
 
 
 # -----------------Fin pilas---------------------------------------------------------------
-
-def colas():
-    from queue import Queue
-    # Generar números aleatorios y agregarlos a la cola
-cola = Queue()
-for i in range(1000000):
-    numero = random.randint(-10000000, 10000000)
-    cola.put(numero)
-
-# Extraer los números de la cola y medir el tiempo
-inicio = time.time()
-while not cola.empty():
-    numero = cola.get()
-fin = time.time()
-
-
-#------------------Fin Colas---------------------------------------------
-
 
 def main():
     while True:
@@ -69,7 +70,7 @@ def main():
         elif op == 2:
             colas()
             # Imprimir el tiempo transcurrido
-            print(f"\n Se extrajeron 1,000,000 de números aleatorios con Colas en {fin - inicio} segundos.")
+            print(f"\n Se extrajeron 1,000,000 de números aleatorios con Colas en {fin1 - inicio1} segundos.")
         elif op == 3:
             break
         else:
